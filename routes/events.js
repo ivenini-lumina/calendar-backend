@@ -22,7 +22,7 @@ router.get('/',
 
 router.post('/', 
     [ // middlewares
-        check('title', 'El titulos es obligatorio').not().isEmpty(),
+        check('title', 'El titulo es obligatorio').not().isEmpty(),
         check('start', 'La fecha de inicio es obligatoria').not().isEmpty(),
         check('start', 'La fecha inicio debe tener formato valido').custom( isDate ),
         check('end', 'La fecha de fin es obligatoria').not().isEmpty(),
@@ -33,6 +33,11 @@ router.post('/',
 
 router.put('/:id', 
     [ // middlewares
+        check('title', 'El titulo es obligatorio').not().isEmpty(),
+        check('start', 'La fecha de inicio es obligatoria').not().isEmpty(),
+        check('start', 'La fecha inicio debe tener formato valido').custom( isDate ),
+        check('end', 'La fecha de fin es obligatoria').not().isEmpty(),
+        check('end', 'La fecha fin debe tener formato valido').custom( isDate ),
         validarCampos,
     ],
     actualizarEvento );
