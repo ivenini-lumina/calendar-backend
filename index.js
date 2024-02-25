@@ -7,6 +7,9 @@ const { dbConnection } = require('./database/config');
 
 const app = express();
 
+const port = process.env.PORT;
+console.log(`Puerto configurado env: ${port}`);
+
 // Base de datos
 dbConnection();
 
@@ -26,8 +29,6 @@ app.use('/api/events', require('./routes/events'));
 // TODO: CRUD eventos calendario
 
 // Escuchar peticiones
-
-const port = process.env.PORT;
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en puerto ${port}`);
